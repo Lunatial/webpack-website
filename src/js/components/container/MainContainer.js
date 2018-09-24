@@ -1,16 +1,29 @@
 import React, {Component} from "react";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
-
 import Loadable from 'react-loadable';
 
 import NavBar from "../presentational/NavBar";
 import MyUpgradedForm from "../presentational/MyUgradedForm";
-import Cards from "../presentational/Cards";
+
+// import Cards from "../presentational/Cards";
+const Cards = Loadable({
+    loader: () => import('../presentational/Cards'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
 import Title from "../presentational/Title";
-import ContentTexts from "../presentational/ContentTexts";
+
+// import ContentTexts from "../presentational/ContentTexts";
+const ContentTexts = Loadable({
+    loader: () => import('../presentational/ContentTexts'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
 
 // import Banner from "../presentational/Banner";
-const LoadableBanner = Loadable({
+const Banner = Loadable({
     loader: () => import('../presentational/Banner'),
     loading() {
         return <div>Loading...</div>
@@ -154,7 +167,7 @@ export default class MainContainer extends Component {
 
                 <ContentTexts name={'Texts'}/>
 
-                <LoadableBanner banner={banner}/>
+                <Banner banner={banner}/>
 
                 <Tile name={'Examples'} color={this.state.color}/>
 
