@@ -1,15 +1,26 @@
 import React, {Component} from "react";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
+import Loadable from 'react-loadable';
+
 import NavBar from "../presentational/NavBar";
 import MyUpgradedForm from "../presentational/MyUgradedForm";
 import Cards from "../presentational/Cards";
 import Title from "../presentational/Title";
 import ContentTexts from "../presentational/ContentTexts";
-import Banner from "../presentational/Banner";
+
+// import Banner from "../presentational/Banner";
+const LoadableBanner = Loadable({
+    loader: () => import('../presentational/Banner'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
+
 import HalfBanner from "../presentational/HalfBanner";
 import Tile from "../presentational/Tile";
 import Footer from "../presentational/Footer";
+
 
 import bgGreen from "SRC/img/image001.jpg";
 import bgPorsche from "SRC/img/image002.jpg";
@@ -143,7 +154,7 @@ export default class MainContainer extends Component {
 
                 <ContentTexts name={'Texts'}/>
 
-                <Banner banner={banner}/>
+                <LoadableBanner banner={banner}/>
 
                 <Tile name={'Examples'} color={this.state.color}/>
 
