@@ -5,16 +5,15 @@ import Loadable from 'react-loadable';
 import NavBar from "../presentational/NavBar";
 import MyUpgradedForm from "../presentational/MyUgradedForm";
 
-// import Cards from "../presentational/Cards";
 const Cards = Loadable({
     loader: () => import('../presentational/Cards'),
     loading() {
         return <div>Loading...</div>
     }
 });
+
 import Title from "../presentational/Title";
 
-// import ContentTexts from "../presentational/ContentTexts";
 const ContentTexts = Loadable({
     loader: () => import('../presentational/ContentTexts'),
     loading() {
@@ -22,7 +21,6 @@ const ContentTexts = Loadable({
     }
 });
 
-// import Banner from "../presentational/Banner";
 const Banner = Loadable({
     loader: () => import('../presentational/Banner'),
     loading() {
@@ -30,9 +28,26 @@ const Banner = Loadable({
     }
 });
 
-import HalfBanner from "../presentational/HalfBanner";
-import Tile from "../presentational/Tile";
-import Footer from "../presentational/Footer";
+const HalfBanner = Loadable({
+    loader: () => import('../presentational/HalfBanner'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
+
+const Tile = Loadable({
+    loader: () => import('../presentational/Tile'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
+
+const Footer = Loadable({
+    loader: () => import('../presentational/Footer'),
+    loading() {
+        return <div>Loading...</div>
+    }
+});
 
 
 import bgGreen from "SRC/img/image001.jpg";
